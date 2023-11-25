@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ForbiddenException, Injectable } from "@nestjs/common";
 import { PrismaService } from "src/prisma/prisma.service";
 import { AuthDto } from "./dto";
@@ -17,10 +18,10 @@ export class AuthService {
       });
       // delete user.hash;
       // Destructure the user object excluding the 'hash' field
-      const { hash: excludedHash, ...userWithoutHash } = user;
+      const { hash: excludedHash, ...userDetails } = user;
 
       // Return the user object without the password hash
-      return userWithoutHash;
+      return userDetails;
 
       // return user;
     } catch (error) {
@@ -45,9 +46,9 @@ export class AuthService {
 
     if (!pwMatches) throw new ForbiddenException("Incorrect Credentials!");
     // Destructure the user object excluding the 'hash' field
-    const { hash: excludedHash, ...userWithoutHash } = user;
+    const { hash: excludedHash, ...userDetails } = user;
 
     // Return the user object without the password hash
-    return userWithoutHash;
+    return userDetails;
   }
 }
