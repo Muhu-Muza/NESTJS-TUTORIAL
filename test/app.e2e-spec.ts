@@ -119,8 +119,8 @@ describe("App e2e", () => {
     describe("Edit user", () => {
       it("should edit user", () => {
         const dto: EditUserDto = {
-          firstName: "Vladimir",
-          email: "vlad@codewithvlad.com",
+          firstName: "Muhumuza",
+          email: "muhumuzaivan@email.co.ug",
         };
         return pactum
           .spec()
